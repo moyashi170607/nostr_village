@@ -1,0 +1,23 @@
+import * as NostrTools from "nostr-tools";
+import { EventTemplate } from "nostr-tools";
+
+interface HouseJSON {
+    house_image: string,
+    house_size: { w: number, h: number },
+    house_name: string,
+    position: { x: number, y: number },
+    greeting: string,
+    var: string
+}
+class Kind38538Event implements EventTemplate {
+    kind: number = 38538;
+    content: string = "";
+    tags: string[][] = [];
+    created_at: number = Math.floor(Date.now() / 1000);
+
+    constructor(house_json: HouseJSON) {
+        this.content = JSON.stringify(house_json);
+
+        this.created_at = Math.floor(Date.now() / 1000);
+    }
+}
