@@ -1,24 +1,31 @@
 import Phaser from "phaser"
+import { VillageMap } from "./scene/village_map";
 
 export let play_canvas: HTMLElement | null;
 export let canvasWidth: number;
 export let canvasHeight: number;
 
+export const GAME_DEFAULT_WIDTH: number = 1200
+export const GAME_DEFAULT_HEIGHT: number = 800
+
 class IndexScene extends Phaser.Scene {
+  constructor() {
+    super({ key: "index_scene", active: true })
+  }
   preload() {
 
   }
 
   create() {
-
+    this.scene.start("village_map")
   }
 }
 
 const config: Phaser.Types.Core.GameConfig = {
-  width: 600,
-  height: 300,
+  width: GAME_DEFAULT_WIDTH,
+  height: GAME_DEFAULT_HEIGHT,
   type: Phaser.AUTO,
-  parent: "tutumu",
+  //parent: "",
   antialias: true,
   pixelArt: false,
   physics: {
@@ -32,7 +39,8 @@ const config: Phaser.Types.Core.GameConfig = {
     }
   },
   scene: [
-    IndexScene
+    IndexScene,
+    VillageMap
   ],
   fps: {
     target: 60
@@ -53,7 +61,7 @@ let game: Phaser.Game;
 window.addEventListener("load", () => {
   game = new Game(config);
 
-  play_canvas = document.getElementById("tutumu") ?? null;
+  play_canvas = document.getElementById("display") ?? null;
   if (play_canvas) {
     canvasWidth = play_canvas.clientWidth;
     canvasHeight = play_canvas.clientHeight;
