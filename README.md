@@ -1,5 +1,8 @@
 # NostrVillage -のす村-
 
+## ゲーム本編リンク
+https://moyashi170607.github.io/nostr_village/
+
 ## 概要
 NostrVillageはNostr上に構築される小さな村です。
 NostrVillageでは、ユーザーはマスで区切られた土地の内、1つを入手し、そこに家を建てることができます。
