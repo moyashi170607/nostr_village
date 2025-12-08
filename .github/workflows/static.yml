@@ -33,7 +33,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 24
       - name: build
         run: npm i && npm run build
       - name: Upload artifact
