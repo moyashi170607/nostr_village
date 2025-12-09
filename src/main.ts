@@ -104,7 +104,7 @@ function checkSmartPhone() {
   }
 }
 
-checkSmartPhone()
+//checkSmartPhone()
 
 window.addEventListener("resize", sizeSet)
 //window.addEventListener("resize", checkSmartPhone)
