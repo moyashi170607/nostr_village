@@ -1,15 +1,43 @@
 import * as NostrTools from "nostr-tools";
 import { EventTemplate } from "nostr-tools";
 
-interface HouseJSON {
+
+/**
+ * 区間の状態を表すJSON
+ *
+ * @export
+ * @interface HouseJSON
+ * @typedef {HouseJSON}
+ */
+export interface HouseJSON {
     house_image: string,
     house_size: { w: number, h: number },
     house_name: string,
     position: { x: number, y: number },
     greeting: string,
-    var: string
+    version: string
 }
-class Kind38538Event implements EventTemplate {
+
+
+/**
+ * 家の持ち主のプロフィール
+ *
+ * @export
+ * @interface OwnerProfile
+ * @typedef {OwnerProfile}
+ */
+export interface OwnerProfile {
+    pubkey: string,
+    name: string,
+    display_name: string,
+    picture: string,
+
+}
+
+/**
+ * 区間の状態を保存するイベント
+ */
+export class Kind38538Event implements EventTemplate {
     kind: number = 38538;
     content: string = "";
     tags: string[][] = [];
