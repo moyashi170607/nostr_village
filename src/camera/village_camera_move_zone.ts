@@ -49,10 +49,13 @@ export class VillageCameraMoveZone extends Phaser.GameObjects.Container {
     }
 
     preUpdate() {
-        if (this.pointer.isDown) {
+        const isPointerActive = this.scene.input.activePointer.isDown;
+        if (isPointerActive) {
             // this.scene.input.x は常にゲームキャンバス内のローカル座標を返す。
-            const pointerX = this.pointer.x;
-            const pointerY = this.pointer.y;
+            const pointerX: number = this.scene.input.activePointer.x;
+            const pointerY: number = this.scene.input.activePointer.y;
+
+            console.log("X:" + pointerX + "Y:" + pointerY)
 
             // X軸の移動チェック
             if (pointerX < LEFT_AREA && pointerX > 0) {
