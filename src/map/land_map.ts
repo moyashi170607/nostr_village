@@ -1,5 +1,12 @@
+import { HouseJSON, OwnerProfile } from "../nostr/event";
 import { LandGrid } from "./land_grid";
 import * as map_data from './map.json';
+
+export interface MapData {
+    houseJSON: HouseJSON,
+    owner: OwnerProfile
+
+}
 
 
 /**
@@ -13,7 +20,9 @@ import * as map_data from './map.json';
 export class LandMap extends Phaser.GameObjects.Container {
 
     //LandGridオブジェクトの集まり
-    map_list: LandGrid[][] = []
+    mapList: LandGrid[][] = []
+
+    mapDataList: MapData[][] = []
 
     //今、どの区間が選択されているか
     focus_grid: { gridX: number, gridY: number } | null = null
@@ -32,12 +41,12 @@ export class LandMap extends Phaser.GameObjects.Container {
 
         //マップの区間を生成
         for (let i = 0; i < X_LENGTH; i++) {
-            this.map_list[i] = Array(Y_LENGTH)
+            this.mapList[i] = Array(Y_LENGTH)
 
             for (let l = 0; l < Y_LENGTH; l++) {
                 let grid = new LandGrid(this.scene, i, l, fillColor)
 
-                this.map_list[i][l] = grid
+                this.mapList[i][l] = grid
 
             }
         }
@@ -45,13 +54,13 @@ export class LandMap extends Phaser.GameObjects.Container {
 
         //区間を選択
         this.scene.events.on("land_grid_focus", (gridx: number, gridy: number) => {
-            this.map_list[gridx][gridy].setFocus(true)
+            this.mapList[gridx][gridy].setFocus(true)
             this.focus_grid = { gridX: gridx, gridY: gridy }
         })
 
         //区間の選択を解除
         this.scene.events.on("land_grid_unfocus", (gridx: number, gridy: number) => {
-            this.map_list[gridx][gridy].setFocus(false)
+            this.mapList[gridx][gridy].setFocus(false)
             this.focus_grid = null
         })
 
