@@ -5,6 +5,8 @@ export class LandMap extends Phaser.GameObjects.Container {
 
     map_list: LandGrid[][] = []
 
+    focus_grid: { gridX: number, gridY: number } | null = null
+
     constructor(scene: Phaser.Scene, x: number, y: number) {
         super(scene, x, y)
 
@@ -34,6 +36,16 @@ export class LandMap extends Phaser.GameObjects.Container {
             }
         }
 
+
+        this.scene.events.on("land_grid_focus", (gridx: number, gridy: number) => {
+            this.map_list[gridx][gridy].setFocus(true)
+            this.focus_grid = { gridX: gridx, gridY: gridy }
+        })
+
+        this.scene.events.on("land_grid_unfocus", (gridx: number, gridy: number) => {
+            this.map_list[gridx][gridy].setFocus(false)
+            this.focus_grid = null
+        })
 
 
 
