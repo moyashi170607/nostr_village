@@ -24,8 +24,9 @@ class IndexScene extends Phaser.Scene {
 const config: Phaser.Types.Core.GameConfig = {
   width: GAME_DEFAULT_WIDTH,
   height: GAME_DEFAULT_HEIGHT,
-  type: Phaser.AUTO,
-  //parent: "",
+  type: Phaser.WEBGL,
+  //parent: "app",
+  canvas: document.getElementById("display") as HTMLCanvasElement,
   antialias: true,
   pixelArt: false,
   physics: {
@@ -70,3 +71,40 @@ window.addEventListener("load", () => {
 
 window.addEventListener('resize', () => game.scale.refresh());
 window.addEventListener('load', () => { game.scale.refresh() });
+
+function sizeSet() {
+  const GAME_CONTENTS: HTMLCanvasElement = document.getElementById("display") as HTMLCanvasElement;
+  const GAME_WRAPPER: HTMLElement = document.getElementById("app") as HTMLElement;
+
+  if (!GAME_WRAPPER || !GAME_WRAPPER.parentNode || !GAME_CONTENTS) {
+    return;
+  }
+
+  const WIDTH: number = (GAME_WRAPPER.parentNode as HTMLElement).clientWidth;
+
+  const DEFAULT_WIDTH: number = GAME_CONTENTS.clientWidth;
+
+  let xScale: number = 1.0;
+
+  xScale = Math.floor(WIDTH / DEFAULT_WIDTH * 100) * 0.01;
+
+  GAME_WRAPPER.style.transform = "scale(" + xScale + "," + xScale + ")";
+
+  console.log(WIDTH)
+}
+
+sizeSet()
+
+function checkSmartPhone() {
+  const WIDTH: number = window.innerWidth
+  const HEIGHT: number = window.innerHeight
+
+  if (WIDTH < HEIGHT) {
+    alert("画面を横にしてプレイ推奨です。")
+  }
+}
+
+checkSmartPhone()
+
+window.addEventListener("resize", sizeSet)
+//window.addEventListener("resize", checkSmartPhone)
