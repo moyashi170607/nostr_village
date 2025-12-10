@@ -1,9 +1,13 @@
 import { GAME_DEFAULT_HEIGHT, GAME_DEFAULT_WIDTH } from "../main"
 
-const LEFT_AREA: number = 100
-const RIGHT_AREA: number = 100
-const UP_AREA: number = 100
-const DOWN_AREA: number = 100
+const LEFT_AREA: number = 80
+const RIGHT_AREA: number = 80
+const UP_AREA: number = 80
+const DOWN_AREA: number = 80
+
+const ALPHA: number = 0.6
+
+const BOX_COLOR: number = 0x525252
 
 export class VillageCameraMoveZone extends Phaser.GameObjects.Container {
     camera: Phaser.Cameras.Scene2D.Camera;
@@ -29,13 +33,13 @@ export class VillageCameraMoveZone extends Phaser.GameObjects.Container {
         this.setDepth(1000)
 
         // デバッグ用の長方形はそのまま残します (移動チェックには使用しません)
-        this.debugLeft = this.scene.add.rectangle(0, 0, LEFT_AREA, GAME_DEFAULT_HEIGHT, 0xff0000, 0.3)
+        this.debugLeft = this.scene.add.rectangle(0, 0, LEFT_AREA, GAME_DEFAULT_HEIGHT, BOX_COLOR, ALPHA)
         this.debugLeft.setOrigin(0, 0)
-        this.debugRight = this.scene.add.rectangle(GAME_DEFAULT_WIDTH - RIGHT_AREA, 0, RIGHT_AREA, GAME_DEFAULT_HEIGHT, 0x00ff00, 0.3)
+        this.debugRight = this.scene.add.rectangle(GAME_DEFAULT_WIDTH - RIGHT_AREA, 0, RIGHT_AREA, GAME_DEFAULT_HEIGHT, BOX_COLOR, ALPHA)
         this.debugRight.setOrigin(0, 0)
-        this.debugUp = this.scene.add.rectangle(0, 0, GAME_DEFAULT_WIDTH, UP_AREA, 0x0000ff, 0.3)
+        this.debugUp = this.scene.add.rectangle(0, 0, GAME_DEFAULT_WIDTH, UP_AREA, BOX_COLOR, ALPHA)
         this.debugUp.setOrigin(0, 0)
-        this.debugDown = this.scene.add.rectangle(0, GAME_DEFAULT_HEIGHT - DOWN_AREA, GAME_DEFAULT_WIDTH, DOWN_AREA, 0xffff00, 0.3)
+        this.debugDown = this.scene.add.rectangle(0, GAME_DEFAULT_HEIGHT - DOWN_AREA, GAME_DEFAULT_WIDTH, DOWN_AREA, BOX_COLOR, ALPHA)
         this.debugDown.setOrigin(0, 0)
 
         this.add([
