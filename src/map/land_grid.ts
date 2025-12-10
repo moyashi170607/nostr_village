@@ -2,6 +2,21 @@ import { GAME_DEFAULT_HEIGHT, GAME_DEFAULT_WIDTH } from "../main"
 
 const DEAD_ZONE: number = 100
 
+
+/**
+ * 区間ひとつひとつのブロック
+ * 
+ * 発火できるイベント
+ * - land_grid_focus
+ * - land_grid_unfocus
+ * 
+ * 影響を受けるイベント
+ * - land_grid_focus
+ *
+ * @export
+ * @class LandGrid
+ * @extends {Phaser.GameObjects.Rectangle}
+ */
 export class LandGrid extends Phaser.GameObjects.Rectangle {
     static readonly CELL_WIDTH: number = 150
     static readonly CELL_HEIGHT: number = 150

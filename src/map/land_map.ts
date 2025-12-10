@@ -11,20 +11,23 @@ export interface MapData {
 
 /**
  * 村のマップ
+ * 
+ * 発火できるイベント
+ * - land_grid_focus
+ * - land_grid_unfocus
  *
- * @export
+ * 
  * @class LandMap
- * @typedef {LandMap}
  * @extends {Phaser.GameObjects.Container}
  */
 export class LandMap extends Phaser.GameObjects.Container {
 
-    //LandGridオブジェクトの集まり
+    /**LandGridオブジェクトの集まり*/
     mapList: LandGrid[][] = []
 
     mapDataList: MapData[][] = []
 
-    //今、どの区間が選択されているか
+    /**今、どの区間が選択されているか*/
     focus_grid: { gridX: number, gridY: number } | null = null
 
     constructor(scene: Phaser.Scene, x: number, y: number) {
@@ -64,6 +67,6 @@ export class LandMap extends Phaser.GameObjects.Container {
             this.focus_grid = null
         })
 
-        this.scene.add.existing(this)
+        this.scene.add.existing(this);
     }
 }
