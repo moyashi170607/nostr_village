@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docs": "typedoc"
   },
   "devDependencies": {
     "sass": "^1.95.0",
+    "typedoc": "^0.28.15",
     "typescript": "~5.9.3",
     "vite": "^7.2.4"
   },

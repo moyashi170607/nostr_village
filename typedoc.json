@@ -1,0 +1,11 @@
+{
+    "entryPoints": [
+        "./src"
+    ],
+    "entryPointStrategy": "expand",
+    "out": "docs",
+    "name": "nostr_village のす村",
+    "readme": "README.md",
+    "includeVersion": true,
+    "excludePrivate": true
+}
