@@ -18,8 +18,8 @@ const DEAD_ZONE: number = 100
  * @extends {Phaser.GameObjects.Rectangle}
  */
 export class LandGrid extends Phaser.GameObjects.Rectangle {
-    static readonly CELL_WIDTH: number = 150
-    static readonly CELL_HEIGHT: number = 150
+    static readonly CELL_WIDTH: number = 200
+    static readonly CELL_HEIGHT: number = 200
 
     static readonly STROKE_COLOR: number = 0x777777
     static readonly STROKE_COLOR_ACTIVE: number = 0xfcf403

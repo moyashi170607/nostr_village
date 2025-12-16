@@ -30,7 +30,7 @@ export function get_event_house() {
 }
 
 export function getRelayList(pubkey: string) {
-    const RELAY_KIND: number = 
+    //const RELAY_KIND: number
 }
 
 export function getOwnerProfile(pubkey: string) {

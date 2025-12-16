@@ -59,8 +59,6 @@ export class VillageCameraMoveZone extends Phaser.GameObjects.Container {
             const pointerX: number = this.scene.input.activePointer.x;
             const pointerY: number = this.scene.input.activePointer.y;
 
-            console.log("X:" + pointerX + "Y:" + pointerY)
-
             // X軸の移動チェック
             if (pointerX < LEFT_AREA && pointerX > 0) {
                 this.camera.scrollX -= this.speed

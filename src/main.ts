@@ -13,6 +13,7 @@ class IndexScene extends Phaser.Scene {
     super({ key: "index_scene", active: true })
   }
   preload() {
+    this.load.image("default_house_img", "./img/house_small.png")
 
   }
 
@@ -90,7 +91,6 @@ function sizeSet() {
 
   GAME_WRAPPER.style.transform = "scale(" + xScale + "," + xScale + ")";
 
-  console.log(WIDTH)
 }
 
 sizeSet()

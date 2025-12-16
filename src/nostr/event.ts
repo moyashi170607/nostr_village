@@ -7,7 +7,6 @@ import { EventTemplate } from "nostr-tools";
  *
  * @export
  * @interface HouseJSON
- * @typedef {HouseJSON}
  */
 export interface HouseJSON {
     house_image: string,
@@ -24,7 +23,6 @@ export interface HouseJSON {
  *
  * @export
  * @interface OwnerProfile
- * @typedef {OwnerProfile}
  */
 export interface OwnerProfile {
     pubkey: string,
