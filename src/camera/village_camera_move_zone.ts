@@ -1,4 +1,5 @@
 import { GAME_DEFAULT_HEIGHT, GAME_DEFAULT_WIDTH } from "../main"
+import { CameraMoveUI } from "../scene/village_map/village_map_inter"
 
 const LEFT_AREA: number = 80
 const RIGHT_AREA: number = 80
@@ -9,9 +10,10 @@ const ALPHA: number = 0.6
 
 const BOX_COLOR: number = 0x525252
 
-export class VillageCameraMoveZone extends Phaser.GameObjects.Container {
+export class VillageCameraMoveZone extends Phaser.GameObjects.Container implements CameraMoveUI {
     camera: Phaser.Cameras.Scene2D.Camera;
     speed: number = 5;
+    active: boolean;
 
     pointer: Phaser.Input.Pointer
 
@@ -24,6 +26,8 @@ export class VillageCameraMoveZone extends Phaser.GameObjects.Container {
 
     constructor(scene: Phaser.Scene, x: number, y: number, camera: Phaser.Cameras.Scene2D.Camera) {
         super(scene, x, y)
+
+        this.active = true;
 
         //ポインタを取得
         this.pointer = this.scene.input.activePointer;

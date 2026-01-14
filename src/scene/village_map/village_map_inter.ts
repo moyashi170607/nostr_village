@@ -3,7 +3,9 @@ export interface InfoBoxUI {
 }
 
 export interface CameraMoveUI {
-    visible: boolean
+    visible: boolean,
+    active: boolean,
+    speed: number
 }
 
 export interface Building {

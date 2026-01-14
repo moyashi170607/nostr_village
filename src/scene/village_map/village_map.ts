@@ -5,7 +5,7 @@ import { LandMap, MapData } from "../../map/land/land_map"
 import { HouseInfo } from "../../UI/infobox/house_info";
 import { VacantInfo } from "../../UI/infobox/vacant_info";
 import { HouseJSON, OwnerProfile } from "../../nostr/event";
-import { Building, InfoBoxUI } from "./village_map_inter";
+import { Building, CameraMoveUI, InfoBoxUI } from "./village_map_inter";
 
 
 /**
@@ -40,7 +40,7 @@ enum InfoBoxMode {
  */
 export class VillageMap extends Phaser.Scene {
     landMap!: LandMap;
-    cameraMoveArea!: VillageCameraMoveZone
+    cameraMoveArea!: CameraMoveUI
     houseInfoBox!: InfoBoxUI
     vacantInfoBox!: InfoBoxUI
 
