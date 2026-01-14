@@ -1,6 +1,7 @@
-import { HouseJSON, OwnerProfile } from "../nostr/event";
+import { HouseJSON, OwnerProfile } from "../../nostr/event";
 import { LandGrid } from "./land_grid";
-import * as map_data from './map.json';
+import * as map_data from '../map.json';
+import { LandGridObj } from "./land_map_inter";
 
 export interface MapData {
     houseJSON: HouseJSON,
@@ -23,9 +24,10 @@ export interface MapData {
 export class LandMap extends Phaser.GameObjects.Container {
 
     /**LandGridオブジェクトの集まり*/
-    mapList: LandGrid[][] = []
+    mapList: LandGridObj[][] = []
 
-    mapDataList: MapData[][] = []
+    mapDataList: MapData[][]
+
 
     /**今、どの区間が選択されているか*/
     focus_grid: { gridX: number, gridY: number } | null = null
@@ -53,6 +55,9 @@ export class LandMap extends Phaser.GameObjects.Container {
 
             }
         }
+
+        this.mapDataList = new Array(X_LENGTH).fill(null).map(() => new Array(Y_LENGTH).fill(null));
+
 
 
         //区間を選択

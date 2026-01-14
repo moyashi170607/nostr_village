@@ -1,6 +1,7 @@
-import { LandGrid } from "./land_grid";
+import { Building } from "../scene/village_map/village_map_inter";
+import { LandGrid } from "./land/land_grid";
 
-export class HouseImage extends Phaser.GameObjects.Image {
+export class HouseImage extends Phaser.GameObjects.Image implements Building {
     gridX: number
     gridY: number
 

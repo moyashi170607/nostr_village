@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import { GAME_DEFAULT_HEIGHT, GAME_DEFAULT_WIDTH } from "../../main";
+import { InfoBoxUI } from "../../scene/village_map/village_map_inter";
 
 const HOME_NAME_TEXT_STYLE: Phaser.Types.GameObjects.Text.TextStyle = {
     padding: { top: 5 },
@@ -39,7 +40,7 @@ const POSITION_TEXT_STYLE: Phaser.Types.GameObjects.Text.TextStyle = {
  * @class InfoBox
  * @extends {Phaser.GameObjects.Container}
  */
-export class InfoBox extends Phaser.GameObjects.Container {
+export class InfoBox extends Phaser.GameObjects.Container implements InfoBoxUI {
     WIDTH: number = GAME_DEFAULT_WIDTH / 2.5
     HEIGHT: number = GAME_DEFAULT_HEIGHT - 200
 

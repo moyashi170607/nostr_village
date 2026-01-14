@@ -1,5 +1,5 @@
 import Phaser from "phaser"
-import { VillageMap } from "./scene/village_map";
+import { VillageMap } from "./scene/village_map/village_map";
 
 export let play_canvas: HTMLElement | null;
 export let canvasWidth: number;

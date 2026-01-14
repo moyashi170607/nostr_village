@@ -29,7 +29,6 @@ export interface OwnerProfile {
     name: string,
     display_name: string,
     picture: string,
-
 }
 
 /**

@@ -1,4 +1,5 @@
-import { GAME_DEFAULT_HEIGHT, GAME_DEFAULT_WIDTH } from "../main"
+import { GAME_DEFAULT_HEIGHT, GAME_DEFAULT_WIDTH } from "../../main"
+import { LandGridObj } from "./land_map_inter"
 
 const DEAD_ZONE: number = 100
 
@@ -17,7 +18,7 @@ const DEAD_ZONE: number = 100
  * @class LandGrid
  * @extends {Phaser.GameObjects.Rectangle}
  */
-export class LandGrid extends Phaser.GameObjects.Rectangle {
+export class LandGrid extends Phaser.GameObjects.Rectangle implements LandGridObj {
     static readonly CELL_WIDTH: number = 200
     static readonly CELL_HEIGHT: number = 200
 
@@ -67,7 +68,7 @@ export class LandGrid extends Phaser.GameObjects.Rectangle {
         this.scene.add.existing(this)
     }
 
-    setFocus(isFocus: boolean) {
+    setFocus(isFocus: boolean): void {
         this.isFocus = isFocus;
 
         if (this.isFocus) {
